@@ -1,3 +1,12 @@
-.conteudo{
+.InformContatos{
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
     background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.InformContatos img{
+    clip-path: circle();
 }

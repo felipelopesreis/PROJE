@@ -6,7 +6,7 @@ import { Home } from './pages/Home'
 import { StateExample } from './pages/Home/StateExample'
 import { Homes } from './pages/Homes'
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
-import { Agenda } from './components/Agenda'
+import { Agenda } from './pages/Agenda'
 
 
 

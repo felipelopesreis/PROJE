@@ -5,8 +5,13 @@ type ContatosSalvos ={
 
 export function Contato({children}:ContatosSalvos){
     return(
-        <header id="atributos">
+        <>
+        <section className="atributos">
                 {children}
-            </header>
+            </section>
+
+          </>  
     )
+
+
 }

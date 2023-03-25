@@ -78,3 +78,9 @@ form input{
 .navbar-menu a:hover{
     color: #764ba2;
 }
+
+inputSearch{
+  padding: 5px;
+  width: 100%;
+  outline: none;
+}
