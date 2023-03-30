@@ -1,26 +1,25 @@
 import './estiloCartao.css'
-type InfoCartao = {
-    nome: string
 
+type ContactCardProps ={
+    contactData: Contact
 }
-export function Cartao({nome}:InfoCartao){
+export function Cartao({contactData}:ContactCardProps){
 
 
+
+
+    const {name,email,picture} = contactData
     return(
     <>
-<div className="conteudo">
-    <img src={"https://randomuser.me/api/portraits/men/29.jpg"}/>
-       <div className='InformContatos'>
-        <h2>{nome}</h2>
-        
-    </div>
-
-
-   
-   
-</div>
-
-
+        <div className="estiloCartao">
+            <img src={picture.medium}/>
+            <div className='informacoes'>
+               <h2>{name.first}</h2>
+              <p>{email}</p>
+           
+             </div>
+        </div>
     </>
     )
+    
 }

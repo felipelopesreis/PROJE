@@ -6,26 +6,41 @@ import { Title } from "../../Title";
 
 export function Agenda(){
 
-    async function test(){
-        console.log(await getContacts())
-    }
-    test()
+    const[search,setSearch] = useState('')
+    const [contacts, setContacs]= useState<Contact[]>([])
+ 
+    useEffect(()=>{
+        async function listContacts(){
+            setContacs(await getContacts())
+            console.log(contacts)
+        }
+        listContacts()
+    },[])
 
+
+   
     return(
         <>
-
-         <header>
-                <Title text='Agenda de contatos'></Title>
-            </header>
-            <main>
-                <input type="search" className="inputSearch"/>
-                <Contato>
-                    <Cartao nome="aou">
-
-                    </Cartao>
-                </Contato>
-        </>
+        <header>
+    <Title text="Agenda de contatos"></Title>
+    </header>
+    <main>
+    <input type="search" className="pesquisar" />
+       
+           <Contato>
+           
+           {
+            contacts.map(contact => {
+              return <Cartao contactData={contact} />
+            })
+          }
+        
+           
+                
+          </Contato>
+    </main>
+        
+    </>
     )
-
 
 }
