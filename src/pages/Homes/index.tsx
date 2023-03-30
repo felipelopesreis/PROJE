@@ -8,23 +8,26 @@ import { Title } from "../../Title";
 import { Link } from 'react-router-dom'
 import { MMenuItem } from "../../components/MenuItem";
 
-
+import { BaseLayout } from "../../layout/BaseLayout";
 export function Homes(){
 
     return(
     <>
-        <header>
-                <Title text='Bem vindo'/>
-        </header>
-            <main>
+    <BaseLayout appBarTitle="Dashboard">
+    
                 
              <Menu>
+                    <link to='/contacts'>
                     <MMenuItem icon={<AddressBook/>} text="Agenda"/>
+                    </link>
 
-                    <Link to='/Gallery'></Link>
+                    <Link to='/Gallery'>
                     <MMenuItem icon={<ImageSquare/>} text="Galeria"/>
+                    </Link>
                 </Menu>
-             </main>
+
+             </BaseLayout>   
+             
     </>
     )
 }
