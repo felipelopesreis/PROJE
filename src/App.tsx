@@ -7,12 +7,13 @@ import { StateExample } from './pages/Home/StateExample'
 import { Homes } from './pages/Homes'
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
 import { Agenda } from './pages/Agenda'
+import { CssBaseline } from '@mui/material'
 
 
 
 function App() {
   return (
-    <div id="App">
+    <CssBaseline>
        <BrowserRouter>
           <Routes>
             <Route path="/" element={<Homes/>}/>
@@ -23,7 +24,7 @@ function App() {
           <NavBarMenu/>
        </BrowserRouter>
        
-    </div >
+    </>
   )
 }
 
