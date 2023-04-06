@@ -1,3 +1,4 @@
+import { List } from '@mui/material'
 import './estiloContato.css'
 type ContatosSalvos ={
     children:React.ReactNode
@@ -5,12 +6,16 @@ type ContatosSalvos ={
 
 export function Contato({children}:ContatosSalvos){
     return(
-        <>
+        
         <section className="atributos">
-                {children}
+            <List sx={{
+
+            }}>
+                {children }
+                </List>
             </section>
 
-          </>  
+            
     )
 
 

@@ -1,8 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, Children, Component, ChangeEvent } from "react";
 import { Cartao } from "../../components/Cartao";
 import { Contato } from "../../components/Contato";
 import { getContacts } from "../../services/api";
 import { Title } from "../../Title";
+import { CircularProgress, TextField } from "@mui/material";
+import { BaseLayout } from "../../layout/BaseLayout";
+import { Contact } from "../../Types";
 
 
 export function Agenda(){
@@ -11,10 +14,12 @@ export function Agenda(){
     const[isLoanding, setIsLoanding] = useState<Boolean>(false)
     const [contacts, setContacs]= useState<Contact[]>([])
 
-    const filteredContacts = ()=>{
-        
+    const filterContacts = (contact:Contact)=>{
+        return contact.name.first.toLowerCase().includes(search.toLowerCase())
     }
- 
+    const handleChange = (event: ChangeEvent<HTMLInputElement>)=>{
+      setSearch(event.target.value)
+    }
     useEffect(()=>{
         async function listContacts(){
             setIsLoanding(true)
@@ -29,36 +34,30 @@ export function Agenda(){
 
    
     return(
-        <>
-        <header>
-
-          
-        
-    <Title text="Agenda de contatos"></Title>
-    </header>
-    <main>
-
-    <input type="search" className="pesquisar" />
        
+
+
+          <BaseLayout appBarTitle="Agenda de Contatos">
+       <TextField fullWidth variant="outlined" label="Pesquisar" onChange={handleChange} value={search}/>
            {
-            isLoanding? <CircularProgress /> :
+            isLoanding? <CircularProgress/> :
             (
                 <Contato>
            
            {
-            contacts.map(contact => {
-              return <Cartao key={contact.login.uuid} contactData={contact} />
+            contacts.filter(filterContacts).map(contact => {
+              return <Cartao key ={contact.login.uuid} contactData={contact} />
             }) 
           }
-          
+          </Contato>
             )
         }
         
         
-          </Contato>
-    </main>
-        
-    </>
+          
+   
+        </BaseLayout>
+ 
     )
 
 }

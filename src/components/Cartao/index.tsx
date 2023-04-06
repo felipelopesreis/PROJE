@@ -1,3 +1,5 @@
+import { Avatar, Divider, ListItem, ListItemAvatar, ListItemText, Typography } from '@mui/material'
+import { Contact } from '../../Types'
 import './estiloCartao.css'
 
 type ContactCardProps ={
@@ -11,14 +13,18 @@ export function Cartao({contactData}:ContactCardProps){
     const {name,email,picture} = contactData
     return(
     <>
-        <div className="estiloCartao">
-            <img src={picture.medium}/>
-            <div className='informacoes'>
-               <h2>{name.first}</h2>
-              <p>{email}</p>
-           
-             </div>
-        </div>
+       <ListItem>
+        <ListItemAvatar>
+            <Avatar src={picture.medium}/>
+               </ListItemAvatar>
+               <ListItemText primary={<Typography>{name.first}</Typography>} secondary={
+                <Typography>{email}</Typography>
+               }>
+
+               
+               </ListItemText>
+         </ListItem>    
+         <Divider></Divider>
     </>
     )
     

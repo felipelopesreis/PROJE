@@ -13,7 +13,7 @@ import { CssBaseline } from '@mui/material'
 
 function App() {
   return (
-    <CssBaseline>
+    <div id='App'>
        <BrowserRouter>
           <Routes>
             <Route path="/" element={<Homes/>}/>
@@ -23,8 +23,8 @@ function App() {
           </Routes>
           <NavBarMenu/>
        </BrowserRouter>
-       
-    </>
+       </div>
+    
   )
 }
 
